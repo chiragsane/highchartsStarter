@@ -3,7 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { ChartModule } from 'angular2-highcharts';
+
+const Highcharts = require('highcharts');
+require('highcharts/modules/exporting')(Highcharts);
+
 import { AppComponent } from './app.component';
+
+import { AppService } from './services/app.service';
 
 @NgModule({
   declarations: [
@@ -12,9 +19,10 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ChartModule
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
